@@ -15,22 +15,23 @@ type Identity struct {
 }
 
 type QueryResult struct {
-    Results []Account `json:"results"`
-    ObjectsCount int `json:"objectsCount"`
-    TotalCount int `json:"totalCount"`
-    StatusCode int `json:"statusCode"`
-    ErrorCode int `json:"errorCode"`
-    ErrorMessage string `json:"errorMessage"`
-    StatusReason string `json:"statusReason"`
-    CallId string `json:"callId"`
+	Results      []Account `json:"results"`
+	ObjectsCount int       `json:"objectsCount"`
+	TotalCount   int       `json:"totalCount"`
+	StatusCode   int       `json:"statusCode"`
+	ErrorCode    int       `json:"errorCode"`
+	ErrorMessage string    `json:"errorMessage"`
+	StatusReason string    `json:"statusReason"`
+	CallId       string    `json:"callId"`
 }
 type Account struct {
-    UID string
-    LoginIds LoginIds `json:loginIds`
+	UID      string
+	LoginIds LoginIds `json:loginIds`
 }
 type LoginIds struct {
-    Emails []string `json:emails`
+	Emails []string `json:emails`
 }
+
 var Methods []string = []string{
 	"socialize.Checkin",
 	"socialize.checkin",
