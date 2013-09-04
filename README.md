@@ -12,6 +12,11 @@ Included:
    * Demo application making generic api calls
 
 
+Documentation
+-------------
+
+[godoc](http://godoc.org/github.com/shanemhansen/gogigya)
+
 Installation
 --------
 
