@@ -12,7 +12,12 @@ import (
 	"sort"
 	"strings"
 	"time"
+	"math/rand"
 )
+
+func init(){
+	rand.Seed(time.Now().UnixNano())
+}
 
 func New(this *Request) *Request {
 	if this.Params == nil {
@@ -40,7 +45,7 @@ func (this *Request) Send() (r *http.Response, err error) {
 	this.Params.Add("sdk", "php_2.15")
 	this.Params.Add("apiKey", this.ApiKey)
 	this.Params.Add("timestamp", fmt.Sprintf("%d", time.Now().Unix()))
-	this.Params.Add("nonce", fmt.Sprintf("%d", time.Now().UnixNano()/1000/1000))
+	this.Params.Add("nonce", fmt.Sprintf("%d_%d", time.Now().Unix(), rand.Int()))
 	fields := strings.Split(this.Method, ".")
 	this.domain = fields[0] + "." + "gigya.com"
 	this.path = "/" + this.Method
